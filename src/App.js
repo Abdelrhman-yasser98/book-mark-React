@@ -1,25 +1,35 @@
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {BrowserRouter,Route} from 'react-router-dom';
+import Nav from './components/nav/nav';
+import Manager from './components/manager/manager';
+import Features from './components/features/features';
+import Simple from './components/features/simple';
+import Speedy from './components/features/speedy';
+import Easy from './components/features/easy';
+import Down from './components/down/down';
+import Frequantly from './components/quest/frequantly';
+import Form from './components/form/form';
+import Footer from './components/footer/footer';
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <Nav/>
+          <Manager/>
+          <Features/>
+          <Route exact path='/' component= {Simple} />
+          <Route  path='/speedy' component= {Speedy} />
+          <Route  path='/easy' component= {Easy} />
+          <Down/>
+          <Frequantly/>
+          <Form/>
+          <Footer/>
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
